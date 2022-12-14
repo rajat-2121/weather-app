@@ -2,6 +2,10 @@ import React, {useEffect, useState} from 'react';
 import WeatherCard from './weatherCard';
 import "./styles.css";
 
+
+const API_KEY = process.env.REACT_APP_API_KEY;
+console.log(API_KEY);
+
 const Temp = () => {
 
   const [searchValue, setSearchValue] = useState("varanasi");
@@ -15,7 +19,10 @@ const Temp = () => {
 
   const getWeatherInfo = async () => {
     try {
-      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=8b01ebad5319b599198387c09f82a61e&units=metric`;
+      
+      
+
+      let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${"8b01ebad5319b599198387c09f82a61e"}&units=metric`;
 
       const res = await fetch(url);
       const data = await res.json();
